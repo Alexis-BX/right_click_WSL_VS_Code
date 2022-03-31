@@ -1,0 +1,27 @@
+Windows Registry Editor Version 5.00
+
+; Add open with wsl option (VSCode) on FILE right-click
+[HKEY_CLASSES_ROOT\*\shell\WSLVSCode]
+@="Open w&ith Code WSL"
+"Icon"="C:\\Windows\\System32\\wsl.exe"
+
+[HKEY_CLASSES_ROOT\*\shell\WSLVSCode\command]
+@="wsl.exe code \"$(wslpath '%1')\""
+
+
+; Add open with wsl option (VSCode + wsl console) on FOLDER right-click
+[HKEY_CLASSES_ROOT\Directory\shell\WSLVSCode]
+@="Open w&ith Code WSL"
+"Icon"="C:\\Windows\\System32\\wsl.exe"
+
+[HKEY_CLASSES_ROOT\Directory\shell\WSLVSCode\command]
+@="wsl.exe code \"$(wslpath '%1')\"; wsl.exe --cd \"%V\""
+
+
+; Add open with wsl option (VSCode + wsl console) on folder BACKGROUND right-click
+[HKEY_CLASSES_ROOT\Directory\Background\shell\WSLVSCode]
+@="Open w&ith Code WSL"
+"Icon"="C:\\Windows\\System32\\wsl.exe"
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\WSLVSCode\command]
+@="wsl.exe code \"$(wslpath '%V')\"; wsl.exe --cd \"$(wslpath '%V')\""
