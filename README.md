@@ -6,7 +6,20 @@ Merge the `.reg` file to add the following options:
 - Right click on a folder background to open the folder in VS Code in WSL mode along with a seperate WSL terminal
 - Right click on a file to open it in VS Code in WSL mode.
 
-### Changing the `Open Linux shell here` right click option
+### Customisations:
+
+If you do not want to launch a WSL command window change lines 18 and 27 to the following:
+```
+18  @="wsl.exe code \"$(wslpath '%1')\""
+27  @="wsl.exe code \"$(wslpath '%V')\""
+```
+
+If you prefer to have the VS Code logo, change lines 6, 15, 24 to the following, with the proper `USERNAME`:
+```
+"Icon"="C:\\Users\\USERNAME\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe"
+```
+
+## Changing the `Open Linux shell here` right click option
 
 Every step followed will have to be repeated for both of these keys:
 ```
